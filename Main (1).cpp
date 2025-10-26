@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -84,7 +85,7 @@ public:
     }
 
     void display_Map() {
-        cout << "\t Delhi Metro Map" << endl;
+        cout << "\t Bengaluru Metro Map" << endl;
         cout << "\t------------------" << endl;
         cout << "----------------------------------------------------" << endl;
         vector<string> keys;
@@ -338,7 +339,7 @@ public:
         return ans;
     }
 
-        vector<std::string> splitString(const string& input, const string& delimiter) {
+    vector<std::string> splitString(const string& input, const string& delimiter) {
         vector<std::string> tokens;
         istringstream stream(input);
         string token;
@@ -381,46 +382,76 @@ public:
 
     static void Create_Metro_Map(Graph_M& g) 
     {
-            g.addVertex("Noida Sector 62~B");
-			g.addVertex("Botanical Garden~B");
-			g.addVertex("Yamuna Bank~B");
-			g.addVertex("Rajiv Chowk~BY");
-			g.addVertex("Vaishali~B");
-			g.addVertex("Moti Nagar~B");
-			g.addVertex("Janak Puri West~BO");
-			g.addVertex("Dwarka Sector 21~B");
-			g.addVertex("Huda City Center~Y");
-			g.addVertex("Saket~Y");
-			g.addVertex("Vishwavidyalaya~Y");
-			g.addVertex("Chandni Chowk~Y");
-			g.addVertex("New Delhi~YO");
-			g.addVertex("AIIMS~Y");
-			g.addVertex("Shivaji Stadium~O");
-			g.addVertex("DDS Campus~O");
-			g.addVertex("IGI Airport~O");
-			g.addVertex("Rajouri Garden~BP");
-			g.addVertex("Netaji Subhash Place~PR");
-			g.addVertex("Punjabi Bagh West~P");
-			
-			g.addEdge("Noida Sector 62~B", "Botanical Garden~B", 8);
-			g.addEdge("Botanical Garden~B", "Yamuna Bank~B", 10);
-			g.addEdge("Yamuna Bank~B", "Vaishali~B", 8);
-			g.addEdge("Yamuna Bank~B", "Rajiv Chowk~BY", 6);
-			g.addEdge("Rajiv Chowk~BY", "Moti Nagar~B", 9);
-			g.addEdge("Moti Nagar~B", "Janak Puri West~BO", 7);
-			g.addEdge("Janak Puri West~BO", "Dwarka Sector 21~B", 6);
-			g.addEdge("Huda City Center~Y", "Saket~Y", 15);
-			g.addEdge("Saket~Y", "AIIMS~Y", 6);
-			g.addEdge("AIIMS~Y", "Rajiv Chowk~BY", 7);
-			g.addEdge("Rajiv Chowk~BY", "New Delhi~YO", 1);
-			g.addEdge("New Delhi~YO", "Chandni Chowk~Y", 2);
-			g.addEdge("Chandni Chowk~Y", "Vishwavidyalaya~Y", 5);
-			g.addEdge("New Delhi~YO", "Shivaji Stadium~O", 2);
-			g.addEdge("Shivaji Stadium~O", "DDS Campus~O", 7);
-			g.addEdge("DDS Campus~O", "IGI Airport~O", 8);
-			g.addEdge("Moti Nagar~B", "Rajouri Garden~BP", 2);
-			g.addEdge("Punjabi Bagh West~P", "Rajouri Garden~BP", 2);
-			g.addEdge("Punjabi Bagh West~P", "Netaji Subhash Place~PR", 3);
+        // --- Purple Line (West-East) : Kengeri~P  ...  Whitefield~P ---
+        g.addVertex("Kengeri~P");
+        g.addVertex("RV College~P");
+        g.addVertex("Nayandahalli~P");
+        g.addVertex("Mysore Road~P");
+        g.addVertex("Magadi Road~P");
+        g.addVertex("Vijayanagar~P");
+        g.addVertex("Hosahalli~P");
+        g.addVertex("Majestic~PG");      // Interchange (Majestic / Kempegowda)
+        g.addVertex("MG Road~P");
+        g.addVertex("Trinity~P");
+        g.addVertex("Indiranagar~P");
+        g.addVertex("Swami Vivekananda Road~P");
+        g.addVertex("Baiyappanahalli~P");
+        g.addVertex("KR Puram~P");
+        g.addVertex("Whitefield~P");
+        g.addVertex("Banaswadi~P");
+
+        // --- Green Line (North-South) : BIEC~G  ...  Anjanapura~G ---
+        g.addVertex("BIEC~G");
+        g.addVertex("Yelahanka~G");
+        g.addVertex("Hebbal~G");
+        g.addVertex("Jalahalli~G");
+        g.addVertex("Peenya~G");
+        g.addVertex("Sampangiramnagar~G");
+        g.addVertex("Mahalakshmi Layout~G");
+        g.addVertex("Rajajinagar~G");
+        g.addVertex("SJR Layout~G");
+        g.addVertex("Banashankari~G");
+        g.addVertex("Jayanagar~G");
+        g.addVertex("South End Circle~G");
+        g.addVertex("Lalbagh~G");
+        g.addVertex("Anjanapura~G");
+
+        // --- Purple Line edges (approx. distances in km) ---
+        g.addEdge("Kengeri~P", "RV College~P", 4);
+        g.addEdge("RV College~P", "Nayandahalli~P", 3);
+        g.addEdge("Nayandahalli~P", "Mysore Road~P", 3);
+        g.addEdge("Mysore Road~P", "Magadi Road~P", 2);
+        g.addEdge("Magadi Road~P", "Vijayanagar~P", 2);
+        g.addEdge("Vijayanagar~P", "Hosahalli~P", 2);
+        g.addEdge("Hosahalli~P", "Majestic~PG", 4);
+        g.addEdge("Majestic~PG", "MG Road~P", 2);
+        g.addEdge("MG Road~P", "Trinity~P", 2);
+        g.addEdge("Trinity~P", "Indiranagar~P", 3);
+        g.addEdge("Indiranagar~P", "Swami Vivekananda Road~P", 3);
+        g.addEdge("Swami Vivekananda Road~P", "Baiyappanahalli~P", 3);
+        g.addEdge("Baiyappanahalli~P", "KR Puram~P", 5);
+        g.addEdge("KR Puram~P", "Banaswadi~P", 4);
+        g.addEdge("Banaswadi~P", "Whitefield~P", 12); // longer stretch to Whitefield
+
+        // --- Green Line edges (approx. distances in km) ---
+        g.addEdge("BIEC~G", "Yelahanka~G", 6);
+        g.addEdge("Yelahanka~G", "Hebbal~G", 8);
+        g.addEdge("Hebbal~G", "Jalahalli~G", 6);
+        g.addEdge("Jalahalli~G", "Peenya~G", 5);
+        g.addEdge("Peenya~G", "Sampangiramnagar~G", 4);
+        g.addEdge("Sampangiramnagar~G", "Mahalakshmi Layout~G", 3);
+        g.addEdge("Mahalakshmi Layout~G", "Rajajinagar~G", 2);
+        g.addEdge("Rajajinagar~G", "Majestic~PG", 2);    // Majestic interchange
+        g.addEdge("Majestic~PG", "SJR Layout~G", 3);
+        g.addEdge("SJR Layout~G", "Banashankari~G", 4);
+        g.addEdge("Banashankari~G", "Jayanagar~G", 2);
+        g.addEdge("Jayanagar~G", "South End Circle~G", 2);
+        g.addEdge("South End Circle~G", "Lalbagh~G", 2);
+        g.addEdge("Lalbagh~G", "Anjanapura~G", 6);
+
+        // A few cross-line edges (if needed) - optional realistic connections
+        // (these can be used to simulate additional interchange branches)
+        g.addEdge("Baiyappanahalli~P", "Whitefield~P", 6); // alternate east stretch
     }
 };
 unordered_map<string, Graph_M::Vertex> Graph_M::vtces;
@@ -444,11 +475,17 @@ string to_string(int value) {
 }
 
 int main() {
+    // clear screen if available
+#if defined(_WIN32) || defined(_WIN64)
+    system("cls");
+#else
     system("clear");
+#endif
+
     Graph_M g;
     Graph_M::Create_Metro_Map(g);
 
-    cout << "\n\t\t\t****WELCOME TO THE METRO APP*****" << endl;
+    cout << "\n\t\t\t****WELCOME TO THE BENGALURU METRO APP*****" << endl;
 
     while (true) {
         cout << "\t\t\t\t~~LIST OF ACTIONS~~\n\n";
@@ -480,32 +517,30 @@ int main() {
             break;
 
         case 3: {
-            cout << "Enter the source station: ";
+            cout << "Enter the source station (use exact name & tag, e.g. Majestic~PG): ";
             string sourceStation;
             cin.ignore();
             getline(cin, sourceStation);
 
-            cout << "Enter the destination station: ";
+            cout << "Enter the destination station (use exact name & tag): ";
             string destinationStation;
             getline(cin, destinationStation);
 
-            // Your code for getting the shortest distance
             int distance = g.dijkstra(sourceStation, destinationStation, false);
             cout << "Shortest Distance from " << sourceStation << " to " << destinationStation << " is " << distance << " KM" << endl;
             break;
         }
 
         case 4: {
-            cout << "Enter the source station: ";
+            cout << "Enter the source station (use exact name & tag, e.g. Majestic~PG): ";
             string sourceStation;
             cin.ignore();
             getline(cin, sourceStation);
 
-            cout << "Enter the destination station: ";
+            cout << "Enter the destination station (use exact name & tag): ";
             string destinationStation;
             getline(cin, destinationStation);
 
-            // Your code for getting the shortest time
             int time = g.dijkstra(sourceStation, destinationStation, true);
             double minutes = ceil(static_cast<double>(time) / 60);
             cout << "Shortest Time from " << sourceStation << " to " << destinationStation << " is " << minutes << " minutes" << endl;
@@ -513,16 +548,15 @@ int main() {
         }
 
         case 5: {
-            cout << "Enter the source station: ";
+            cout << "Enter the source station (use exact name & tag, e.g. Majestic~PG): ";
             string sourceStation;
             cin.ignore();
             getline(cin, sourceStation);
 
-            cout << "Enter the destination station: ";
+            cout << "Enter the destination station (use exact name & tag): ";
             string destinationStation;
             getline(cin, destinationStation);
 
-            // Your code for getting the shortest path (distance wise)
             string shortestPath = g.Get_Minimum_Distance(sourceStation, destinationStation);
             cout << "Shortest Path (Distance Wise) from " << sourceStation << " to " << destinationStation << " is:\n"
                  << shortestPath << endl;
@@ -530,16 +564,15 @@ int main() {
         }
 
         case 6: {
-            cout << "Enter the source station: ";
+            cout << "Enter the source station (use exact name & tag, e.g. Majestic~PG): ";
             string sourceStation;
             cin.ignore();
             getline(cin, sourceStation);
 
-            cout << "Enter the destination station: ";
+            cout << "Enter the destination station (use exact name & tag): ";
             string destinationStation;
             getline(cin, destinationStation);
 
-            // Your code for getting the shortest path (time wise)
             string shortestPath = g.Get_Minimum_Time(sourceStation, destinationStation);
             cout << "Shortest Path (Time Wise) from " << sourceStation << " to " << destinationStation << " is:\n"
                  << shortestPath << endl;
